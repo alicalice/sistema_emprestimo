@@ -1,0 +1,142 @@
+@import "tailwindcss";
+
+:root {
+  --bg-main: #f8fafc;
+  --excel-white: #ffffff;
+  --excel-border: #cbd5e1;
+  --excel-header-bg: #ecfeff; /* Fundo ciano bem claro */
+  --cyan-primary: #0891b2;    /* Ciano de destaque */
+  --cyan-hover: #0e7490;
+  --purple-accent: #7c3aed;  /* Roxo para ações e destaques */
+  --purple-hover: #6d28d9;
+  --text-main: #0f172a;
+}
+
+body {
+  background-color: var(--bg-main);
+  color: var(--text-main);
+  font-family: system-ui, -apple-system, sans-serif;
+  min-height: 100vh;
+}
+.header-bar {
+  background-color: var(--excel-white);
+  border-bottom: 1px solid var(--excel-border);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.nav-link {
+  color: var(--text-main);
+  font-weight: 600;
+  padding: 0.5rem 0.75rem;
+  transition: color 0.15s ease-in-out;
+}
+
+.nav-link:hover {
+  color: var(--cyan-primary);
+}
+/* --- ESTRUTURA TABULAR (ESTILO EXCEL) --- */
+.excel-table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: var(--excel-white);
+  border: 1px solid var(--excel-border);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+.excel-table-wrapper {
+  border: 1px solid var(--excel-border);
+  border-radius: 0.75rem;
+  overflow: hidden;
+}
+
+.excel-table th {
+  background-color: var(--excel-header-bg);
+  color: var(--cyan-primary);
+  border: 1px solid var(--excel-border);
+  padding: 0.75rem 1rem;
+  font-weight: 700;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  text-align: left;
+}
+
+.excel-table td {
+  border: 1px solid var(--excel-border);
+  padding: 0.625rem 1rem;
+  font-size: 0.9rem;
+  color: var(--text-main);
+}
+
+.excel-table tr:nth-child(even) {
+  background-color: #f8fafc; /* Efeito zebrado sutil do Excel */
+}
+
+.excel-table tr:hover {
+  background-color: #e0f2fe; /* Highlight em ciano claro ao passar o mouse */
+}
+
+/* --- BOTÕES & AÇÕES DE DESTAQUE --- */
+.btn-purple {
+  background-color: var(--purple-accent);
+  color: #ffffff;
+  font-weight: 600;
+  padding: 0.4rem 0.85rem;
+  border-radius: 0.5rem;
+  transition: background-color 0.15s ease-in-out;
+}
+
+.btn-purple:hover {
+  background-color: var(--purple-hover);
+}
+
+.btn-cyan {
+  background-color: var(--cyan-primary);
+  color: #ffffff;
+  font-weight: 600;
+  padding: 0.4rem 0.85rem;
+  border-radius: 0.5rem;
+  transition: background-color 0.15s ease-in-out;
+}
+
+.btn-cyan:hover {
+  background-color: var(--cyan-hover);
+}
+
+/* --- TÍTULOS, CARDS E FORMULÁRIOS (TEMA PLANILHA) --- */
+.title-primary {
+  color: var(--text-main);
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.card-container {
+  background-color: var(--excel-white);
+  border: 1px solid var(--excel-border);
+  border-radius: 0.75rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.form-label {
+  display: block;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--cyan-primary);
+  text-transform: uppercase;
+  margin-bottom: 0.25rem;
+}
+
+.form-input {
+  width: 100%;
+  background-color: var(--excel-white);
+  border: 1px solid var(--excel-border);
+  border-radius: 0.5rem;
+  padding: 0.6rem 0.85rem;
+  color: var(--text-main);
+  font-size: 0.9rem;
+  transition: all 0.15s ease-in-out;
+}
+
+.form-input:focus {
+  outline: none;
+  border-color: var(--cyan-primary);
+  box-shadow: 0 0 0 2px rgba(8, 145, 178, 0.2);
+}
