@@ -1,7 +1,7 @@
 import { Customer, CustomerLoans } from "@/types";
 
 
-const API_URL = "http://localhost:3000";
+const API_URL = process.env.NEXT_PUBLIC_API_URL || "https://sistema-emprestimo-eight.vercel.app";
 
 export const api = {
     async getCustomers(): Promise<Customer[]>{
