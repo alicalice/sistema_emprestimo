@@ -4,10 +4,15 @@ import { LoanCard } from "@/components/LoanCard";
 import { api } from "@/services/api";
 import { Customer } from "@/types";
 import { useEffect, useState } from "react";
+import { useSearchParams } from "next/navigation";
 
 export default function Emprestimos(){
 
     const [customers,setCustomers] = useState<Customer[]>([]);
+
+    const searchParams = useSearchParams();
+    const clienteId = searchParams.get("id");
+
 
     const [selectedId, setSelectedId] = useState<string | null>(null);
 
