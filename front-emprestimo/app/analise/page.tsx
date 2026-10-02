@@ -14,7 +14,7 @@ export default function Emprestimos(){
     const clienteId = searchParams.get("id");
 
 
-    const [selectedId, setSelectedId] = useState<string | null>(null);
+    const [selectedId, setSelectedId] = useState<string | null>(clienteId);
 
     const [loansData,setLoansData] = useState<any>(null);
 
