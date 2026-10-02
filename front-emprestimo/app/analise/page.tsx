@@ -4,19 +4,22 @@ import { LoanCard } from "@/components/LoanCard";
 import { api } from "@/services/api";
 import { Customer } from "@/types";
 import { useEffect, useState } from "react";
-import { useSearchParams } from "next/navigation";
 
 export default function Emprestimos(){
 
     const [customers,setCustomers] = useState<Customer[]>([]);
 
-    const searchParams = useSearchParams();
-    const clienteId = searchParams.get("id");
-
-
-    const [selectedId, setSelectedId] = useState<string | null>(clienteId);
+    const [selectedId, setSelectedId] = useState<string | null>(null);
 
     const [loansData,setLoansData] = useState<any>(null);
+
+    useEffect(() => {
+        const id = new URLSearchParams(window.location.search).get("id");
+
+        if (id) {
+            setSelectedId(id);
+        }
+    }, []);
 
     useEffect(()=> {
         if(selectedId) {
@@ -25,10 +28,10 @@ export default function Emprestimos(){
     },[selectedId]);
 
     useEffect(() => {
-    if (!selectedId) {
-        api.getCustomers().then(setCustomers);
-    }
-}, [selectedId]);
+        if (!selectedId) {
+            api.getCustomers().then(setCustomers);
+        }
+    }, [selectedId]);
 
     if(!selectedId){
         return(
